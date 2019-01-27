@@ -1009,15 +1009,288 @@ Global secondary index: </code>
         With regards to IAM,
         when a request is made, the AWS services decides
         whether a given request should be allowed or denied,
-        he evaluation logic follow these rules.</li>
+        he evaluation logic follow these rules.
+        <ol>
+          <li>
+
+            By default,
+            all the request is denied (In general,
+            request made using the account credential for resources in account
+            are always allowed).
+          </li>
+          <li>An explicit allow policy overrides this default.</li>
+          <li>An Explicit deny policy overrides any allows.</li>
+
+
+        </ol>
+
+      </li>
+
+      <li>The only recommendation use case for the S3 bucket ACL
+        is to grant the write permission to the S3 log delivery group to
+        write access log object to the user’s bucket.
+      </li>
+      <li>The Multi AZ feature allows the user to achieve High availability.
+        MS SQL doesn’t support multi AZ.</li>
+      <li>
+        AWS RRS provides the same functionalities as S3,
+        but at the cheaper rate. It is ideally suited for non-mission critical
+        application. It provides less disabilities than S3, but is a cheaper option.</li>
+      <li>
+        An ELB performs a health check on its instances to ensure that it diverts traffic only
+        to healthy instances. The ELB can perform a health check on HTTP,
+        HTTPS, TCP and SSL protocols.</li>
+      <li>
+        It is possible to create an S3 bucket accessible only by a certain IAM user,
+        using policies in a CloudFormation template.
+        You can manage that AWS services and resources are available
+        to each user or specific user.</li>
+      <li>
+        The IAM group policy is always aggregated,
+        if user does not have permission for one group but has permission
+        for another group, he will have full access to EC2.
+        unless there is specific deny policy, the user will be able to access EC2.</li>
+      <li>
+        The AWS RDS DB instance is an isolated DB environment provided by
+        AWS in which the user can create more than 1 database.
+        The maximum size of the instance should be between 5GB to 3 TB.
+        The size of each DB can be anything in this range.</li>
+      <li>
+        If the user needs to connect to RDS then he has to open 3306 in the
+        RDS security group for his IP address.</li>
+      <li>
+        A user can create always a new EBS volume of higher size than the
+        original snapshot size. The user cannot create the volume of lower size.
+        When the new volume is created the size in the instance will be shown
+        as the original size. The user needs to change the size of the
+        device with resize2fs or other OS specific commands.</li>
+      <li>
+        Identity federation with SSO enables users from existing directory to access
+        recourses within your AWS account, making it easier to manage
+        your user by maintaining their identities in a single place. I
+        n this case, the federated user is only solution since AWS doesn’t
+        allow creating more than 5000 IAM user.</li>
+      <li>
+        • The AWS ELB allows mapping a custom domain name with ELB.
+        The user can map ELB with DNS in 2 ways.</li>
+      <li>
+        1) By creating CNAME with the existing domain name service provider, or</li>
+      <li>
+        2) By Creating a record with Route 53</li>
+      <li>
+        AWS CloudFormation can be used to bootstrap both the Chef server and Chef Client
+        software on EC2 instances.</li>
+      <li>
+        Amazon SWF an activity worker is a program that receives activities tasks,
+        perform them, and provides result back. Which translate to a piece
+        of software that implements tasks.</li>
+      <li>
+        Auto scaling attempts to distribute evenly the AZ that are enabled for the
+        user’s auto scaling group. Auto scaling does this by attempting to launch
+        new instances in the AZ with the fewest instances.</li>
+      <li>
+        Authentication mechanism are provided to ensure that messages stored in
+        SQS queue are secured against unauthorized access.
+        Only the AWS account owner can access the queue they create. SQS uses proven
+        cryptographic methods to authenticate your identity.
+        Either through the use of your access key Id and
+        request signature, or through the use of X.509 certificate.</li>
+      <li>
+        Elastic beanstalk leverages AWS services such as EC2, S3, SNS, ELB and
+        auto scaling to deliver the same reliable, scalable and cost-effective
+        infrastructure that hundreds of business depend on today.</li>
+      <li>In AWS Elastic Beanstalk, if the application returns
+        response other than 200, OK or there no response within
+        the configured inactivityTimeout period,
+        SQS once again makes the message visible in the queue and available for
+        another attempt at processing.</li>
+      <li>The X-Forwarded-Port request header helps the user identify the port used
+        by the client while sending a request to ELB.</li>
+      <li>When designing an Amazon SWF workflow, you precisely define each of
+        the required activities. You then register each activity w
+        ith Amazon SWF as an activity type. when you register the activity,
+        you provide information such as a name and version,
+        and some timeout values based on how long you expect the activity to take.
+      </li>
+      <li>If a user has launched an EBS backed instance,
+        the user will be charged for the EBS volume even through the instance
+        is in a stopped state. The instance will be charged for the EC2
+        hourly cost when it is running.</li>
+      <li>When a user trying to create a policy from AWS console,
+        it will have options such as create policy from template or use a
+        policy generator. The user can also define a custom policy or
+        choose the option to have no permission. The policy simulator is
+        not available in the console.</li>
+      <li>
+        AWS S3 follow the eventual consistent model. Once the object is updated it
+        may return a new value or the old value based on whether all the content is replicated
+        across multiple servers until it becomes consistent (eventual).</li>
+      <li>
+        AWS Elastic beanstalk will change the health status of web server environment
+        tier to grey color when your application’s health status is unknown
+        (because status is reported when the application is not in the ready state).</li>
+      <li>
+
+
+        If the user is going to specify an IP range in RDS security group,
+        AWS recommends using the private IP address of the EC2 instance.
+        This provides a more direct network route from the EC2 instance
+        to the RDS instance, and doesn’t incur network charge for the data send outside
+        the Amazon network.</li>
+      <li>
+        The EBS snapshot are a point in time backup of EBS volume.
+        It is an incremental snapshot, but is always specific to the region and never
+        specific to a single AZ. Hence the statement “It is stored in the same AZ
+        as the volume” is incorrect.</li>
+      <li>
+        When creating an EBS the user can not specify the subnet or VPC.
+        However, the user must create the EBS in the same zone as the instance so that it can
+        attached the EBS volume to the running instance.</li>
+      <li>
+        AWS Elastic beanstalk is best suited for those groups who want to deploy and manage
+        their application within minutes in the AWS cloud. As a bonus,
+        you don’t even need experience with cloud computing to get started.</li>
+      <li>
+        If you delete a queue, you need to wait at least 60 seconds before creating a queue
+        with the same name. Please note that when you delete a queue.
+        The deletion process takes up to 60 seconds,
+        request you send to a recently deleted queue might succeed during the 60 seconds period.
+        For example, a SendMessage request might succeed , but after 60 seconds
+        the queue and that message you send no longer exists.</li>
+      <li>
+        Tags help you to categorize your load balancer in different way, for example, by purpose,
+        owner or environment. The following basic restriction apply to tags.
+        The maximum tags per resource is 50. The maximum key length size is
+        128 Unicode characters and value 256 Unicode characters.
+        Tags key value are case sensitive.</li>
+      <li>
+        S3 bucket can be in one the three state.</li>
+      <li>
+        ~ unversioned (default).</li>
+      <li>versioning-enabled.</li>
+      <li>versioning-suspended.</li>
+      <li>
+        The bucket owner can configure the versioning state of the bucket.
+        The versioning state applies to all (never some) of the object
+        in that bucket. The first-time owner enables a bucket for versioning,
+        objects in it are thereafter always versioned and given a unique version ID.</li>
+      <li>
+        To configure SQS message retention period, set
+        the MessageRetentionPeriod attribute using the SetQueueAttribute method.
+        This attribute is used to specify the number of seconds a message will be
+        retained by SQS. Currently the default value for the message retention
+        period is 4 days. Using the MessageRetentionPeriod attribute,
+        the message retention period can be set anywhere from 1 minute to 14 days.</li>
+      <li>
+        A user can see the number of Autoscaling resources currently allowed for the AWS account
+        by using the as-describe-account-limits command or by calling the DescribeAccountLimits
+        action.</li>
+      <li>
+        IAM is free service. You can create as many IAM users or groups as desired free of cost.</li>
+      <li>
+        If the user is using server-side encryption feature,
+        Amazon S3 encrypts the object data before saving it on disks in
+        its data centers and decrypts it when the user downloads the objects.
+        Thus, the user is free from the tasks of managing encryption keys, and related tools.</li>
+      <li>
+        If a user is running two instances in separate AZs,
+        it will provide HA with ELB since ELB will automatically stop routing the
+        traffic to unhealthy instances and send it to healthy instances only.</li>
+      <li>
+        Amazon DynamoDB supports incremental and decremental atomic operations.</li>
+      <li>
+        Amazon S3 offers access policy options broadly categorized as resource-based policies
+        and user policies. Access policies, such as ACL and resources policy can be
+        attached to the bucket. With the object the user can only have ACL and not an
+        object policy. The user can also attach access policies to the IAM users
+        in the account. These are called user policies.</li>
+      <li>
+        DynamoDB, an index cannot be modified once it is created.</li>
+      <li>When a user is trying to mount a blank EBS volume, it is required that the user
+        first creates a file system within the volume.</li>
+      <li>
+        With regards to RDS, the user can manage the configuration of DB engine
+        by using the DB parameter group. A DB group contains engine configuration
+        values that can be applied to one or more DB instances of the same instance type.</li>
+      <li>
+        If a user is configuring HTTPS on the front end and TCP on the back end,
+        ELB will not allow saving these listeners and will respond back with the message.
+        “Load balancer protocol is an application layer protocol, but instance protocol is not.
+        Both the load balancer protocol and the instance protocol should be at the same layer,
+        please fix it.”</li>
+
+      <li>
+        Comparing with on-premises or EC2 based MS-SQL, RDS provides an automated backup feature,
+        IOPS is available with both RDS and EBS, However HA is not available with MS SQL.</li>
+      <li>
+        The EC2 instances are registered with the load balancer using the IP address associated
+        with the instance. When the instance is stopped and then started.
+        The IP address with the instance changes. This prevents the load balancer
+        from routing traffic to the restarted instance. When the user stops and then
+        start registered EC2 instances, it is recommended that to de-register
+        the stopped instance from load balancer, and then register the restarted
+        instance. Failure to do so may prevent the load balancer from
+        performing health check and routing the traffic to the restarted instance.</li>
+      <li>
+        In order to enable encryption at rest using EC2 and Elastic lock store,
+        you must configure encryption when creating the EBS volume.</li>
+      <li>504 Error is a Gateway timeout error.</li>
 
 
     </ul>
   </div>
   <div class="card-body card-header">
-    <h5 class="card-title">Web identity federation</h5>
+    <h3 class="card-title">ElasticCache</h3>
     <ul>
-      <li>kk</li>
+      <li> Elastic cache: In memory cache in the Cloud.</li>
+
+<li>Improve performance of web application, 
+  allowing you to retrieve information from fast-in-memory cache 
+  rather than slower disk base databases.</li>
+  <li>
+      Sits between your application and the database:</li>
+      <li>
+      E.g. an application frequently requesting specific product information 
+      for your best-selling products.</li>
+      <li>
+           Takes the load off your database.</li>
+           <li>
+      Good if your database is particularly read-heavy and the data is not changing 
+      frequently.</li>
+      <li>
+    Improve performance for read heavy workloads. E.g. Social networking, gaming media 
+    sharing and Q&A portals.</li>
+    <li>
+      Frequently -accessed adapt is stored in memory for low latency access, 
+      improving the overall performance of your application.</li>
+      <li>
+      Also good for compute heavy load e.g. recommendation engines.</li>
+      <li>
+      Can be used to store results of I/O intensive database queries or output of 
+      compute intensive calculation.</li>
+      <li>
+      2 Type of Elastic Cache</li>
+<li>
+    Memcached:
+<ol>
+  <li>Widely adopted memory object caching system.</li>
+  <li>Multi-Threaded</li>
+  <li>NO Multi AZ capabilities.</li>
+</ol>
+
+</li>
+<li>
+    Redis:
+<ol>
+  <li>Open source in-memory key-value store.</li>
+  <li>Supports more complex data structure: sorted sets and lists.</li>
+  <li><Support Master/ Slave replication and Multi-AZ for cross AZ redundancy./li>
+</ol>
+
+</li>
+     
+
+
     </ul>
   </div>
   <div class="card-body card-header">
