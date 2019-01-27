@@ -103,19 +103,229 @@
   </div>
   <!-- /.content -->
 
-  <div class="card text-center container">
-      <div class="card-header">
-        Currenlty under maintaince.
-      </div>
-      <div class="card-body">
-        <h5 class="card-title">Currenlty under maintaince.</h5>
-        <p class="card-text">Currenlty under maintaince.</p>
-        <a href="#" class="btn btn-primary">See You again</a>
-      </div>
-      <div class="card-footer text-muted">
-        Whats up !
-      </div>
+  <div class="card container">
+    <div class="card-header">
+      Web identity federation
+    </div>
+    <div class="card-body">
+      <h5 class="card-title">Web identity federation</h5>
+
+
+      <ul>
+        <li> Let you give your users access to AS resources after they have successfully authenticated with a web-based
+          identity provider like Amazon, Facebook and Google.
+          Following successful authentication, the user receives as authentication code from Web ID provider, which
+          they can trade for temporary AWS security credentials.
+        </li>
+
+      </ul>
+    </div>
+    <div class="card-body">
+      <h5 class="card-title">AWS Cognito provides web identity federation with the following feature:</h5>
+      <ul>
+        <li>AWS Cognito provides web identity federation with the following feature:</li>
+
+        <li>
+
+          Sign-up and sign-in to your apps.
+        </li>
+
+        <li>
+          Acts as identity broker between y
+          our application and web ID providers, so you don’t need to write any additional code
+        </li>
+        <li>
+          Synchronizes user data for multiple devices. Seamless experiences.
+        </li>
+        <li>Recommended for all mobile application AWS services.</li>
+        <li>
+          Cognito broker between the app and Facebook or Google to provide temporary credential which map to an IAM
+          role allowing access to the required resources.
+          No need for the application to embed or store AWS credential locally on the device and it gives user a
+          seamless experience across all mobile devices.
+
+        </li>
+        <li>
+          Cognito tracks the association between user identity and the various different devices they sign-in-from.
+          In order to provide the seamless user experience for your application, Cognito uses Push
+          to push updates and <strong>Synchronize</strong> user date across multiple devices.
+          Amazon SNS is used to send the silent push notification to all the devices associated with a given identity
+          whenever data stored in the cloud changes
+
+        </li>
+
+      </ul>
     </div>
 
-</div>
+    <div class="card-footer text-muted">
+      Whats up !
+    </div>
+  </div>
 
+
+
+
+
+  <div class="card-body card-header">
+    <h5 class="card-title">Cognito User pools</h5>
+    <ul>
+      <li>User Pools are user directories used to manage sign-up and sign-in functionalities for mobile and web
+        application.
+        User can sign-in directly to user Pool, or indirectly via identity provider like Facebook or Google. Cognito
+        acts as an Identity Broker between the ID provider and AWS. Successful authentication generates a number of
+        JSON web token (JWTs).
+      </li>
+    </ul>
+  </div>
+
+
+  <div class="card-body card-header">
+    <h5 class="card-title">Identity Pools</h5>
+    <ul>
+      <li>Identity Pools enable you to create unique identities for your user and authenticate them with identity
+        providers. With an identity, you can obtain temporary, limited privilege AWS credentials to access other AWS
+        services.
+
+      </li>
+    </ul>
+  </div>
+
+
+  <div class="card-body card-header">
+    <h3>Inline Policies vs Managed Polices vs Custom Policies</h3>
+    <h5 class="card-title">Manages Policies</h5>
+    <ul>
+      <li>A Managed Policy is an IAM policy which is created and administered by AWS.</li>
+      <li>
+        AWS provide Managed Policies for common use cases bases on job function. E.g. AmazonDynamoDBFullAccess,
+        AWSCodeCommitPowerUser, AmazonEC2ReadOnlyAccess etc.
+
+      </li>
+      <li>
+        These AWS-provided policies allow you to assign appropriate permission to your users, group and role without
+        having to write the policy yourself.
+        A single Managed Policy be attached to multiple user, group or roles within the same AWS account and across
+        different accounts.
+        You cannot change the permission defined in an AWS Manages Policy.
+        AWS occasionally update the permission defined in an AWS managed policy.
+      </li>
+    </ul>
+    <h5 class="card-title">Inline policy</h5>
+    <ul>
+
+      <li>An inline policy is an IAM policy which is actually embedded within the user, group or role to which it
+        applies, there is strict 1:1 relationship between the entity and the policy.
+        When you delete the user, group or role in which the inline policy is embedded, the policy is also be deleted.
+        In most cases, AWS recommends using Managed Policies or inline Policies.
+        Inline Policies are useful when you want to be sure that the permission in a policy are not inadvertently
+        assigned to any other user, group or role than the one for which they’re intended. (i.e. You are creating a
+        policy that must only ever be attached to a single user, group or role.)
+      </li>
+    </ul>
+
+    <h5 class="card-title">Customer Managed Policy</h5>
+    <ul>
+
+      <li>
+        Managed by you
+      </li>
+      <li>
+        It can assigned to multiple user, group or role in your account.
+      </li>
+      <li>
+        In most cases, AS recommends using Managed policies over inline Policies.
+      </li>
+    </ul>
+
+  </div>
+  <div class="card-body card-header">
+    <h5 class="card-title">STS AssumeRoleWithWebIdentity</h5>
+    <ul>
+      <li>• assume-role-with-web-identity is an API provided by STS (Security Token service).</li>
+      <li>Returns temporary security credentials for users authenticated by mobile or web application or using a Web ID
+        provider like Facebook, google or Amazon ect.
+        For mobile application, Cognito is recommended.
+      </li>
+      <li>Regular web ap5plication can use the STS assume-role-with-web-identity API.</li>
+      <li>If successful, STS will return temporary credential enabling access to AWS recourses.</li>
+      <li>• AssumedRoleUser ARN and AssumeRoleID- are used to programmatically reference the temporary credential- not
+        an IAM role or user.</li>
+
+    </ul>
+  </div>
+  <div class="card-body card-header">
+    <h5 class="card-title">Cross Account Access</h5>
+    <ul>
+      <li>Many AWS customers use separate AWS accounts for their development and production resources. This separation
+        allows them to cleanly separate different types of resources and can also provide some security benefits.</li>
+      <li>Cross account access makes it easier to you to work productively within a multi-account (or multi role) AWS
+        environment by making it easy for you to switch roles within the AWS Management console. You can now sign in to
+        the console using IAM username then switch the console to manage another account without having to enter (or
+        remember) another user name and password.</li>
+    </ul>
+    <h4>Steps</h4>
+    <ul>
+      <li>
+        • Identify our account numbers. </li>
+      <li> • Create a group in IAM-dev. </li>
+      <li> • Create a user in IAM-Dev. </li>
+      <li> • Log into production </li>
+      <li>• Create a “read-write-app-bucket” policy. </li>
+      <li>• Create the “UpdateApp” Cross Account ~role. </li>
+      <li>• Apply the newly created policy to the role. </li>
+      <li>• Log into Developer account. </li>
+      <li>• Create a new inline policy. </li>
+      <li> Apply a new inline policy. </li>
+      <li>Apply it to the Developer group. </li>
+      <li>Login as john </li>
+
+
+
+    </ul>
+  </div>
+  <div class="card-body card-header">
+    <h5 class="card-title">Web identity federation</h5>
+    <ul>
+      <li>kk</li>
+    </ul>
+  </div>
+  <div class="card-body card-header">
+    <h5 class="card-title">Web identity federation</h5>
+    <ul>
+      <li>kk</li>
+    </ul>
+  </div>
+  <div class="card-body card-header">
+    <h5 class="card-title">Web identity federation</h5>
+    <ul>
+      <li>kk</li>
+    </ul>
+  </div>
+  <div class="card-body card-header">
+    <h5 class="card-title">Web identity federation</h5>
+    <ul>
+      <li>kk</li>
+    </ul>
+  </div>
+  <div class="card-body card-header">
+    <h5 class="card-title">Web identity federation</h5>
+    <ul>
+      <li>kk</li>
+    </ul>
+  </div>
+  <div class="card-body card-header">
+    <h5 class="card-title">Web identity federation</h5>
+    <ul>
+      <li>kk</li>
+    </ul>
+  </div>
+  <div class="card-body card-header">
+    <h5 class="card-title">Web identity federation</h5>
+    <ul>
+      <li>kk</li>
+    </ul>
+  </div>
+
+
+
+</div>
