@@ -266,16 +266,16 @@
     <h4>Steps</h4>
     <ul>
       <li>
-        • Identify our account numbers. </li>
-      <li> • Create a group in IAM-dev. </li>
-      <li> • Create a user in IAM-Dev. </li>
-      <li> • Log into production </li>
-      <li>• Create a “read-write-app-bucket” policy. </li>
-      <li>• Create the “UpdateApp” Cross Account ~role. </li>
-      <li>• Apply the newly created policy to the role. </li>
-      <li>• Log into Developer account. </li>
-      <li>• Create a new inline policy. </li>
-      <li> Apply a new inline policy. </li>
+        Identify our account numbers. </li>
+      <li> Create a group in IAM-dev. </li>
+      <li> Create a user in IAM-Dev. </li>
+      <li> Log into production </li>
+      <li>Create a “read-write-app-bucket” policy. </li>
+      <li>Create the “UpdateApp” Cross Account ~role. </li>
+      <li>Apply the newly created policy to the role. </li>
+      <li>Log into Developer account. </li>
+      <li>Create a new inline policy. </li>
+      <li>Apply a new inline policy. </li>
       <li>Apply it to the Developer group. </li>
       <li>Login as john </li>
 
@@ -284,21 +284,734 @@
     </ul>
   </div>
   <div class="card-body card-header">
-    <h5 class="card-title">Web identity federation</h5>
+    <h5 class="card-title">DynamoDB Provisioned Throughput</h5>
     <ul>
-      <li>kk</li>
+      <li>• DynamoDB provisioned throughput is measured in Capacity units.</li>
+      <li>• When you create your table, you specify your requirement in terms of Read Capacity Units and write Capacity
+        Units.</li>
+      <li>1 x Write Capacity Unit = 1 x 1KB write/second.</li>
+      <li>1 x Read Capacity Units = 1 x Strongly Consistent Read of 4KB/Second.</li>
+      <li>OR</li>
+
+      <li>2 x Eventually Consistent Reads of 4KB/second</li>
+      <li>
+
+      </li>
     </ul>
   </div>
   <div class="card-body card-header">
-    <h5 class="card-title">Web identity federation</h5>
+    <h5 class="card-title">Short Notes</h5>
     <ul>
-      <li>kk</li>
+      <li>
+
+
+        Billing commences when Amazon EC2 initiate the boot sequences of an AMI instance.
+        Billing ends when instances shut down.
+        Which could occur through a web services command,
+        by running “shutdown -h” or through instances failure.
+      </li>
+      <li>
+        You can configure ELB to use SSL certificate in order to improve your system security.
+        The load balancer uses the certificate to terminate and decrypt request before
+        sending them to back-end instances. </li>
+      <li>
+        ELB uses AWS IAM to upload your certificate to your load balancer.</li>
+      <li>
+        User can add additional EC2 instances to load balancer on the fly.
+        You can add or remove EC2 instances from your load balancer as your needs change,
+        without disrupting the overall flow of information.
+      </li>
+      <li>
+        An IAM group is a collection of IAM users.
+        Groups let the user specify permission for a collection of users.
+        Which can make it easier to manage the permission for those users.
+      </li>
+      <li>
+        SQS message retention period => 1 minute to 14 days.
+        The default is 4 days and once the message retention
+        limit reached your messages will be automatically deleted.</li>
+
+
+    </ul>
+  </div>
+
+  <div class="card-body card-header">
+    <h5 class="card-title">In DynamoDB</h5>
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Description</th>
+
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th scope="row">Database</th>
+          <td>Collection of tables</td>
+
+        </tr>
+        <tr>
+          <th scope="row">table</th>
+          <td>Collection of Items</td>
+
+        </tr>
+        <tr>
+          <th scope="row">Item</th>
+          <td>Collection of Attribute</td>
+
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="card-body card-header">
+    <h5 class="card-title">DynamoDB SSD</h5>
+    <ul>
+      <li>DynamoDB SSDs help achieves design goal of predictable low-latency response times for storing and accessing
+        data at any scale. The high I/O performance of SSDs also enables to serve high-scale request workloads cost
+        efficiently, and pass the efficiently along in low request pricing.
+
+      </li>
+
     </ul>
   </div>
   <div class="card-body card-header">
-    <h5 class="card-title">Web identity federation</h5>
+    <h5 class="card-title">A few of the security measure are listed below.</h5>
     <ul>
-      <li>kk</li>
+
+      <li>
+
+        Always keep updated OS update.</li>
+      <li>
+        Not allow IAM user to connect with EC2 instances
+      </li>
+      <li>
+        Disable the password-based login for all the users.</li>
+      <li>
+        Create a procedure to revoke the access rights of the individual user
+        when they are not required to connect to EC2 instance anymore for the
+        purpose of allocation configuration.
+      </li>
+      <li>
+        Lock down unnecessary ports.</li>
+      <li>
+        Audit any proprietary application that the user may be running on the EC2
+        instances provide temporary escalation privileges,
+        such as sudo for users who need to perform occasional privileged tasks.
+      </li>
+      <li>
+        It is not useful to connect RDP/SSH with an instance.</li>
+
+
+    </ul>
+  </div>
+  <div class="card-body card-header">
+    <h5 class="card-title">Important Notes</h5>
+    <ul>
+      <li>
+
+
+        In DynamoDB, DeleteItem deletes a single item in table by primary key,
+        but BatchDeleteItem does not exist.</li>
+      <li>
+        • Valid Operation: BatchWriteItem, DescribeTable, BatchGetItem, DeleteItem.</li>
+      <li>
+        <strong>
+          Scan operation are always eventually consistent</strong></li>
+      <li>
+        In Amazon SNS, when you want to subscribe to a topic and receive notification
+        to your email. Select Email in protocol drop down box.
+        Enter an email address you can use to receive the notification in endpoint field.
+      </li>
+      <li>
+        Basic is the type of <strong>monitoring data (EBS) which is available
+          automatically in 5 minutes </strong>at no charge called.
+      </li>
+      <li>If an Amazon EBS volume is <code> device of an instance, it cannot be detached </code> unless the instance is
+        in the stopped state
+
+      </li>
+      <li>
+        <code>DescribeTable </code>return information about table.
+        Including the status of the table,
+        when it was created, The primary key schema,
+        and indexes on the table. This is used to get detailed
+        listing of secondary indexes on the table.
+      </li>
+      <li>
+        EC2 once terminated by user,
+        the user can find details about termination
+        from the description tab under the label State transition reason.
+        If the user has explicitly stopped or terminated the instance,
+        the reason will be “User Initiated shutdown”.
+      </li>
+      <li>
+        <code>
+      AWS (Amazon Simple workflow) is a task coordination and state management service </code>
+        for cloud application.</li>
+      <li>
+        When you create a table with hash-and-range key,
+        it is optional to defined one or more secondary indexes on the table.
+      </li>
+      <li>
+        RDS DB instance storage comes in two type:
+        <code> Standard Storage: </code>Standard storage is allocated on t
+        he EBS volume and connected to the user’s DB instance.</li>
+      <li>
+        <code>  Provisioned IOPS: </code> Provisioned IOPS uses optimized EBS
+        volumes and optimized configuration stack.
+        It provides, dedicated capacity for the EBS I/O.</li>
+      <li>
+
+        When a user is trying to <code>detach an EBS volume, 
+      the user can either terminate the instance or explicitly remove the volume, 
+      it is recommended practice to unmount the 
+      volume first to avoid any file system damage. </code></li>
+
+
+      <li>
+        RDS provides a managed DB platform,
+        which offers feature,
+        such as automated backup,
+        patch management, automated failure detection and recovery.
+        The scaling is not automated the user needs to plan it with few clicks.
+      </li>
+      <li>
+        S3 Objects stored in the bucket
+        before the user has set the versioning state have a version ID of null.
+        When the user enables versioning,
+        the objects in the bucket do not
+        change and their ID remain null.
+      </li>
+      <li>
+        SQS allows the user to move data between distributed components
+        so they can perform different task without losing messages
+        or requiring each component to be always available.
+        The user can delete a queue at any time.
+        whether it is empty or not. it is impotent to
+        note that queue retain messages for a set period of time,
+        by <code> a queue retain messages for 4 days.</code>
+      </li>
+      <li>
+        Speaking about DynamoDB,
+        if your application performs more reads/second or writes/second than
+        your table’s provisioned throughput capacity allows,
+        requests above your provisioned capacity will be throttled and
+        you will receive 400 error code.
+      </li>
+      <li>
+
+        User can define multiple private IP address for his instance.
+        The number of network interfaces and private IP address that a user can
+        specify for an instance depends on the instance type.
+        This scenario helps when user wants to host multiple website
+        on a single EC2 instance.
+        After the user has assigned a secondary private address for his instance,
+        he needs to configure the OS on that instance to recognize the
+        secondary private IP address. AWS Linux, the <code>ec2-net-utils</code>
+        package can take care for these steps.
+        It configures additional network instances that
+        user can attached while the instance is running,
+        refreshes secondary IP address during DHCP lease renewal,
+        and updates the related routing rules.
+      </li>
+      <li>
+        SQS supports an unlimited number of queue
+        and unlimited number of messages per queue for each user.
+        SQL automatically delete messages that have been in the queue for more than 4 days.
+      </li>
+      <li>In Amazon VPC, you can assign any private address to your instance as long as it is:</li>
+      <li>
+        <ol>
+          <li>
+            Part of associated subnet IP address range.</li>
+          <li>
+            Not reserved by amazon IP networking purpose.</li>
+          <li>Not currently assigned to another interface.</li>
+
+        </ol>
+
+      </li>
+      <li>
+        Queue name restriction.
+        <ol>
+          <li>
+            80 char </li>
+          <li> Alphanumeric plus hyphen (-) and underscore (_) allowed. </li>
+          <li> Name must be unique.</li>
+          <li>After delete the queue, you can reuse the queue name.</li>
+        </ol>
+
+
+      </li>
+      <li>
+        To send push notification to mobile devices using SNS and AWS, you need to obtain:
+        <ol>
+          <li>Registration ID</li>
+          <li>Client secret.</li>
+        </ol>
+      </li>
+
+      <li>
+
+
+
+        To begin SNS mobile push notification,
+        you first need an app for the mobile endpoint
+        that uses one of the supported push notification services:
+        APNS, GCM or ADM. After you have registered and configured
+        the app to use one of these services.
+        You configure SNS to send push notification to mobile endpoint.
+      </li>
+
+      <li>
+        The user can get notification using SNS if he has configured the notification
+        while creating the auto scaling group.
+      </li>
+      <li>
+        Before Auto scaling selects an instance to terminate,
+        it first identifies the AZ that has more instances than the other
+        AZ used by the group. If all the AZ have the same number of instances,
+        it identifies a random AZ.</li>
+      <li>
+        In DynamoDB, an index cannot be modified once it is created.</li>
+      <li>
+        AWS Elastic Beanstalk provides an environment to easily develop and run application
+        in the cloud.
+        It is integrated with developer tools and provides a
+        one-stop experiences for you to manage the lifecycle of your applications.
+      </li>
+
+      <li>
+        Launch a VPC instance with two network interfaces.
+        Assign elastic IPs from VPC EIP pool to those interfaces (Because,
+        when the user has attached more one network
+        interface with an instance, AWS can not assign public IPS to them.).
+        Assign separate security groups
+        if separate security groups are needed
+        This scenario also helps for operating network appliances.
+        Such as firewalls or load balancers that have multiple
+        private IP addresses for each network interface.</li>
+
+      <li>
+
+        DynamoDB automatically replicates your data synchronously
+        across multiple Availability zones within an AWS Region
+        to ensure high-availabilities and data durability.
+      </li>
+
+
+
+      <li>
+        In Amazon SWF, the coordination logic in a workflow is contained
+        in a software program called a<code> decider. 
+    The decider schedules activity task, 
+    provides input data to the activity workers</code>,
+        processes events that arrive while the workflow is in progress,
+        and ultimately ends (or closes) the workflow when the objective has been completed.
+      </li>
+      <li>
+
+        When the user makes any changes to the RDS security group
+        the rule status will be authorizing for some time
+        until the changes are applied to all intendances
+        that the group connected with.
+        Once the changes are propagated the rule status will change to authorized.
+      </li>
+      <li>
+        <code>
+    When a user creates an EBS volume and attached it as a device, 
+    it is required to mount the device. 
+    It the device/volume not mounted it will not be available in the listing.</code>
+      </li>
+      <li>
+        If the user wants to temporarily stop the access to S3
+        the best solution is to disable the keys.</li>
+      <li>
+        If an EBS volumes stays in the detaching state,
+        the user can force the detachment by clicking Force Detach.
+        Forcing the detachment can lead to either data loss or a corrupted file system.
+        The user should use this option only as a last resort
+        to detach a volume from a failed instance or if he is detaching a volume
+        with the intention of deleting it.
+      </li>
+
+      <li>
+        To configure the Auto scaling termination policy,
+        the user can either specify any one of the policies
+        as a standalone policy or list multiple policies in an ordered list.
+        The policies are executed in the order that they are listed.
+      </li>
+      <li>
+        The user can configure the Autoscaling group to automatically
+        scale up and then scale down based on the specified condition.
+        To configure this, the user must setup policies which will get
+        triggered by the CloudWatch alarms. </li>
+      <li>
+        In DynamoDB, you can increase the throughput you have provisioned f
+        or your table using <code> updateTable API </code>
+        or in the AWS Management console.
+        If you wish to exceed throughput rates of 10,000 writes/sec
+        or 10,000 read/sec, you must first contact AWS.
+      </li>
+
+
+      <li>
+        The instances that reside in the private subnets
+        of your VPC are not reachable from the internet,
+        meaning that is not possible to SSH into them.
+        To interact with them you can use a <code>bastion server</code>,
+        located in a public subnet,
+        that will act as proxy of them.
+        You can also connect if you have direct connected or VPN.
+      </li>
+      <li>
+        AWS Cloud formation supports Amazon EC2 tagging.
+      <li>
+        When creating an RDS instance,
+        the user needs to specify whether it is Multi AZ or not.
+        If the user does not provide the value for the zone.
+        The maintenance window or automated backup window,
+        RDS will automatically select the value.</li>
+      <li>
+
+        If the user is launching RDS with Multi AZ the user cannot provision
+        the Availability Zone. RDS is launched automatically instead.
+      </li>
+
+
+
+
+      <li>
+        If the user does not specify a preferred backup window while enabling an
+        automated backup, Amazon RDS assign a default 30-minute backup
+        window which is selected at random from an 8-hour block of time per region.
+      </li>
+      <li>
+        If you need to host multiple websites (with different IPs)
+        on a single EC2 instance, the following is the suggested method from AWS.
+      </li>
+      <li>
+
+
+        IN AWS Elastic Beanstalk, you can update your deployed application,
+        even while it is part of a running environment,
+        for a java application, you can also use the AWS Toolki
+        t for Eclipse to update your deployed application.</li>
+      <li>
+        Amazon SQS is a distributed queuing system that is optimized for horizontal scalability,
+        not for single threaded sending or receiving speeds.</li>
+      <li>
+        The IAM policy is never region specific.
+        If the user wants to configure the region-specific setting,
+        he needs to provide conditions as part of the policy.</li>
+      <li>
+        DynamoDB has seamless scalability with no table size
+        limits and unlimited storage, so you shouldn’t be worried about
+        managing storage on the host or to provisioning more drive,
+        as your data requirement changes.
+      </li>
+
+
+
+
+
+    </ul>
+  </div>
+  <div class="card-body card-header">
+    <h5 class="card-title">Like SNS other send notification messages services are</h5>
+    <ol>
+      <li>
+        Google Cloud Messaging for Android. (GCM).</li>
+      <li>
+        Apple Push Notification service. (APNS)</li>
+      <li>
+        Amazon Device Messaging. (ADM)</li>
+
+    </ol>
+  </div>
+  <div class="card-body card-header">
+    <h4 class="card-title">Elastic Beanstalk</h4>
+    <ul>
+      <li>
+
+        Elastic beanstalk is a service for deploying and
+        scaling web application developed in many popular
+        language Java, .Net, PHP, NodeJS, python,
+        Go and ~Docker onto widely used application
+        server platform like Apache Tomcat, NgInx, Passenger and IIS.
+      </li>
+      <li>
+        Developer can focus on writing code and don’t need to worry about any
+        of the underlying infrastructure needed to run the application.</li>
+      <li>
+        You upload the code and Elastic Beanstalk will handle deployment,
+        capacity provisioning, load balancing, auto scaling and application health.
+      </li>
+      <li>
+        You retain full control of the underlying AWS recourses powering your application
+        and you pay only for the AWS resources required to store and run your
+        applications (e.g. EC2 instances and S3 buckets.)</li>
+      <li>
+        Monitor and manage application health via a dashboard.</li>
+      <li>
+        Integrated with CloudWatch and X-ray for performance data metrices.</li>
+      <li>
+        AWS Elastic Beanstalk is designed to support multiple running environment,
+        as an example you could have one for integrated testing,
+        one for pre-production, and one for production,
+        with each environment independently configured
+        and running on its own separate AWS resources.
+      </li>
+      <li>
+        You can customize Elastic Beanstalk environment
+        using Elastic Beanstalk configuration files.
+        (e.g. you can define packages to install, create Linux user and group,
+        run shell commands, specify services to enable or
+        configure your load balancer etc.)
+      </li>
+      <li>
+
+        These are files written in YAML or JSON format.
+        They can have a filename of your choice but must have a
+        <code>.config </code>extension and saved inside a folder
+        called <code>.ebextensions</code>.
+      </li>
+      <li>
+        The. ebextensions folder must be included into the top-level
+        directory of your application source code bundle.
+      </li>
+
+    </ul>
+  </div>
+  <div class="card-body card-header">
+    <h3 class="card-title">Lambda</h3>
+    <ul>
+      <li>
+
+        AWS Lambda is a compute service where
+        you can upload your code and create a Lambda function.
+        AWS Lambda takes care of provisioning and managing
+        the servers that you use to run the code.
+        You don’t have to worry about operating systems,
+        patching, scaling etc. you can use Lambda in the following ways.
+      </li>
+      <li>
+        <code>Scale out</code> (not up) automatically.</li>
+      <li>
+        Lambda function are independent, 1 event = 1 function.</li>
+      <li>
+        Lambda function can trigger other lambda functions,
+        1 event can = x function if functions trigger other function.</li>
+      <li>
+
+        Architecture can get extremally complicated,
+        AS <code>X-ray allows you to debug what is happening.</code>
+      </li>
+      <li>
+        Lambda can do things globally,
+        you can use it to back up S3 buckets to other S3 buckets etc.
+      </li>
+      <li>
+        As an event-driven compute service
+        where AWS Lambda runs your code in response of events.
+        These events could be changes to data in an AWS S3
+        bucket or an AWS DynamoDB table.</li>
+
+
+
+    </ul>
+  </div>
+  <div class="card-body card-header">
+    <h5 class="card-title">How is Lambda priced?</h5>
+    <ul>
+      <li>Number of requests.</li>
+      <li>First 1 million requests are free. $0.20 per million requests thereafter.</li>
+      <li>
+
+
+
+
+        Duration
+      </li>
+      <li>
+        Duration is calculated from the time your code begins executing until
+        it returns or otherwise terminates,
+        rounded up to the nearest 100ms. The price depends on the amount of
+        memory you allocate to your function. You are charged $0.00001667
+        for every GB-second used.
+      </li>
+      <li> Why is lambda cool?
+        <ol>
+          <li>No SERVES</li>
+          <li>
+            Continuous scaling
+
+          </li>
+          <li>
+            Super cheap.</li>
+        </ol>
+      </li>
+
+    </ul>
+  </div>
+  <div class="card-body card-header">
+    <h5 class="card-title">Important Notes:</h5>
+    <ul>
+      <li>DynamoDB with no table size limit and unlimited storage.
+      </li>
+      <li>
+        If the use launching RDS with multi AZ
+        the user cannot provision the AZ. RDS is launched automatically instead.
+      </li>
+      <li>
+        AWS Elastic Beanstalk is designed to support multiple running environment.
+        As an example, you could have one for integration testing,
+        one for pre-production, and one for production,
+        with each environment independently configured and
+        running on its own separate resources.</li>
+      <li>
+        If an Amazon EBS volume is the root device,
+        it cannot be detached unless the instance is in the stopped state.</li>
+      <li>
+        SQS maximum message size is 256KB.</li>
+
+      <li>
+        The user cannot authorize an EC2 security group if it is in different AWS
+        region than the RDS instance.
+        The user can authorize an IP range or specify an amazon EC2
+        security group in the same region that refer to an IP address in another region.
+      </li>
+      <li>
+        A stack is the set of AWS resources that are created and managed as single unit when
+        AWS CloudFormation initiate a template.</li>
+      <li>
+        <code>
+Global secondary index: </code>
+        An index with hash and range key that can be different from those on the table.</li>
+      <li>If you have predictable load changes,
+        you can set a schedule through Auto scaling to plan your scaling activities.
+        You can use CloudWatch to send alarms trigger
+        scaling activities and ELB to help distribute
+        traffic to your instance with Auto scaling groups.
+        Auto scaling enables you to run Amazon EC2
+        fleet at optimal utilization.
+      </li>
+      <li>
+        The webserver is running but the user is not able to access the
+        website from the internet. The possible reason for this failure is
+        the security group of the instance is not properly configured.
+      </li>
+      <li>
+        AWS Elastic beanstalk source bundle can be:
+        Zip/war file.
+        Not exceed 512MB.
+        Not include top or parent folder.
+      </li>
+      <li>
+        To host a static website, the user needs to configure an S3 bucket
+        for website and then upload the website content into the
+        bucket. The website is then available at the region-specific
+        website endpoint of the bucket.</li>
+      <li>
+        Every SQS queue has visibility timeout.
+        For the designated amount of time after a message is read from queue.
+        It will not be visible for any other reader. As long as the
+        amount of time that it takes to process the message
+        is less than the visibility timeout, every message will
+        be processes and deleted. In the event that the component
+        processing the message fails or becomes unavailable,
+        the message will be again become visible to any component
+        reading the queue once the visibility timeout ends.
+        This allows you to have many components all reading messages
+        from the same queue, with each working to process
+        different messages.</li>
+      <li>
+        DynamoDB, a secondary index is a data structure that
+        contains a subset of attribute from a table, along with
+        an alternate key to support Query operation.</li>
+
+      <li>AWS SNS can select one of the following transports as part of the subscription request:
+        HTTP, HTTPS, Email, Email-JSON, SQS and SMS</li>
+      <li>
+        • The xvd[f-p] is the recommended device name for EBS
+        volumes that can be attached to the EC2 instance running on Window.
+      </li>
+      <li>
+        It is possible to have one instance part of
+        two separate ELBs. Through both ELBs have different configuration.
+        ELBs are never launched in specific zones.</li>
+      <li>
+        Access Key ID and secret access key interact with AWS CLI/
+        AWS SDK or service specific APIs.</li>
+      <li>
+        The IAM users by default cannot change their password.
+        The root user or IAM admin needs to set the policy
+        in the password policy page, which should allow
+        the user to change their password. Once it is enabled,
+        the IAM user can always change their password from AWS console/CLI.
+      </li>
+      <li>
+        SQS used for photo editing software.</li>
+      <li>
+        An EBS volume provides the persistent data storage.
+        The user can attach a volume to any instance
+        provided they are both in the same AZ.
+        Even if they are in same region but in a different AZ.
+        It will not able to attach the volume to the instance.
+      </li>
+      <li>
+        If EBS volume is not in the same AZ of an EC2 instance,
+        it cannot be attached to the instance. The only option is
+        to take a snapshot of the volume and create a new volume in the instance’s AZ.
+      </li>
+      <li>
+        DynamoDB integrate with IAM,
+        you can use IAM to grant access to DynamoDB
+        resources and API actions. To do so, you first write an IAM policy,
+        which is a document the explicitly lists the permission you want to grant.
+        You then attached the policy to AWS user or role.</li>
+      <li>
+
+        SNS makes it simple and cost effective to push to mobile devices,
+        such as IPhone, iPad, Android, Kindle Fire and internet
+        connected smart device, as well as pushing to other distributed services.
+      </li>
+      <li>
+        Perform penetration testing as performed by attackers to
+        find any vulnerabilities. He organization must take an approval
+        from AWS before performing penetration testing perform hardening
+        testing to find if there are any unnecessary
+        ports open perform SQL injection to find any DB security issue.
+      </li>
+      <li>
+        The code memory checks are generally useful when the organization wants to
+        improve the application performance.</li>
+      <li>
+        A user can share an AMI with another user/peer using the command.</li>
+      <li>
+        ec2-modify-image-attribute "AMI-Id" -l -a "AWS-Account-id"</li>
+      <li>
+        When a user is trying to mount a blank EBS volume,
+        it is required that user first create a file system
+        with in volume. If the volume created from existing
+        snapshot then user need not to create filesystem on
+        the volume as it will wipe out the existing data.</li>
+      <li>
+        It is recommended rule that the root user
+        should grant the least privileges to IAM user or the group.
+        The higher the privileges, the more problem it can create.</li>
+      <li>
+        SQS provides “at least once” delivery of all the messages is its queue.
+        You should design your system so that processing a message more
+        than once doesn’t create any error or inconsistencies.</li>
+      <li>
+        With regards to IAM,
+        when a request is made, the AWS services decides
+        whether a given request should be allowed or denied,
+        he evaluation logic follow these rules.</li>
+
+
     </ul>
   </div>
   <div class="card-body card-header">
