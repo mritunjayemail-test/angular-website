@@ -9,8 +9,8 @@ aws s3api put-bucket-policy --bucket "$1" \
 
 aws s3api put-bucket-versioning --bucket "$1"  --versioning-configuration Status=Enabled
 
-aws s3 cp master-CloudFormation-templates-continuous-deployment.yaml "s3://${1}"
+aws s3 cp --recursive assets/ "s3://${1}/assets"
 
-aws s3 cp --recursive templates/ "s3://${1}/templates"
 
-aws s3 cp --recursive doc/ "s3://${1}/doc"
+
+aws s3 sync  --include=* . s3://${1}/
