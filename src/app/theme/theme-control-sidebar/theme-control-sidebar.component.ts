@@ -32,7 +32,7 @@ export class ThemeControlSidebarComponent implements OnInit {
     ];
 
     $container.append(
-      '<h5>Customize AdminLTE</h5><hr class="mb-2"/>'
+      '<h5>Customize m-kumar.com</h5><hr class="mb-2"/>'
       + '<h6>Navbar Variants</h6>'
     );
 
