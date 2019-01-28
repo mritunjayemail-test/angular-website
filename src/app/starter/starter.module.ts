@@ -10,6 +10,8 @@ import { StarterControlSidebarComponent } from './starter-control-sidebar/starte
 import { StarterFooterComponent } from './starter-footer/starter-footer.component';
 import { AWSPage1StarterComponent } from '../page/aws-page1/aws-page1.starter.component';
 import { AwsPage1Component } from '../page/aws-page1/aws-page1.component';
+import { AwsPage2Component } from '../page/aws-page1/aws-page2.component';
+import { AWSPage2StarterComponent } from '../page/aws-page1/aws-page2.starter.component';
 
 
 @NgModule({
@@ -20,11 +22,13 @@ import { AwsPage1Component } from '../page/aws-page1/aws-page1.component';
   declarations: [
     StarterComponent,
     AWSPage1StarterComponent,
+    AWSPage2StarterComponent,
 
     StarterNavbarComponent,
     StarterMainSidebarComponent,
     StarterContentComponent,
     AwsPage1Component,
+    AwsPage2Component,
 
     StarterControlSidebarComponent,
     StarterFooterComponent
