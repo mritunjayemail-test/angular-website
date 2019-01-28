@@ -8,6 +8,9 @@ import { StarterMainSidebarComponent } from './starter-main-sidebar/starter-main
 import { StarterContentComponent } from './starter-content/starter-content.component';
 import { StarterControlSidebarComponent } from './starter-control-sidebar/starter-control-sidebar.component';
 import { StarterFooterComponent } from './starter-footer/starter-footer.component';
+import { AWSPage1StarterComponent } from '../page/aws-page1/aws-page1.starter.component';
+import { AwsPage1Component } from '../page/aws-page1/aws-page1.component';
+
 
 @NgModule({
   imports: [
@@ -16,11 +19,16 @@ import { StarterFooterComponent } from './starter-footer/starter-footer.componen
   ],
   declarations: [
     StarterComponent,
+    AWSPage1StarterComponent,
+
     StarterNavbarComponent,
     StarterMainSidebarComponent,
     StarterContentComponent,
+    AwsPage1Component,
+
     StarterControlSidebarComponent,
-    StarterFooterComponent,
+    StarterFooterComponent
+   
   ]
 })
 export class StarterModule { }
