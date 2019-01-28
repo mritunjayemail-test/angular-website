@@ -9,6 +9,9 @@ const routes: Routes = [
   { path: '', redirectTo: 'index' }
 ];
 
+
+
+
 @NgModule({
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
