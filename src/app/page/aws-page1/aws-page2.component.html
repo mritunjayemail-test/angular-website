@@ -19,21 +19,147 @@
     <!-- /.content-header -->
     <div class="content">
         <div class="container-fluid">
-            <!--start -->
+   
+            <!-- start -->
             <div>
-                <div class="jumbotron">
-                    <h1 class="display-4">Hello, world!</h1>
-                    <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra
-                        attention to featured content or information.</p>
-                    <hr class="my-4">
-                    <p>It uses utility classes for typography and spacing to space content out within the larger
-                        container.</p>
-                    <p class="lead">
-                        <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
-                    </p>
-                </div>
+                <h3>OSI Model</h3>
+                <table class="table">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th scope="col">Layer</th>
+                            <th scope="col">Name</th>
+                            <th scope="col">Example</th>
+                            <th scope="col">Mnemonic</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr style="color: red">
+                            <th scope="row">7</th>
+                            <td>Application</td>
+                            <td>TWeb Broswer</td>
+                            <td>Away</td>
+                        </tr>
+                        <tr style="color: red">
+                            <th scope="row">6</th>
+                            <td>Presentation</td>
+                            <td>TLS/SSL, Compression</td>
+                            <td>Pizza</td>
+                        </tr>
+                        <tr style="color: red">
+                            <th scope="row">5</th>
+                            <td>Session</td>
+                            <td>Setup, Negotiation, Teardown</td>
+                            <td>Sausage</td>
+                        </tr>
+                        <tr style="color: red">
+                            <th scope="row">4</th>
+                            <td>Transport</td>
+                            <td>TCP</td>
+                            <td>Throw</td>
+                        </tr>
+                        <tr style="color: red">
+                            <th scope="row">3</th>
+                            <td>Network</td>
+                            <td>IP, ARP</td>
+                            <td>Not</td>
+                        </tr>
+
+                        <tr style="color: green">
+                            <th scope="row">2</th>
+                            <td>Data Link</td>
+                            <td>MAC</td>
+                            <td>Do</td>
+                        </tr>
+                        <tr style="color: green">
+                            <th scope="row">1</th>
+                            <td>Physical</td>
+                            <td>CAT5, fible optic cable, 5GHz carrier frequency</td>
+                            <td>Please</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <ul>
+                    <li style="color: red">
+                        Red : Customer responsibility
+                    </li>
+                    <li style="color: green">
+                        Green : AWS responsibility
+                    </li>
+                </ul>
+
             </div>
             <!-- end -->
+
+            <!-- start -->
+            <div>
+                <h3>Unicast vs Multicast</h3>
+                <ol>
+                    <li>Unicast: Like the dedicated phone calls.</li>
+                    <li>Multicast: Laud Speaker announcement. Doent fly on VPC level</li>
+                </ol>
+            </div>
+            <!-- end -->
+
+
+            <!-- start -->
+            <div>
+                <h3>OSI Model</h3>
+                <table class="table">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th scope="col">Layer 4 protocol</th>
+                            <th scope="col">Characteristics</th>
+                            <th scope="col">Plain speak</th>
+                            <th scope="col">Uses</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th scope="row">TCP
+                            </th>
+                            <td>Connection-based, stateful, ackknowledges receipt</td>
+                            <td>After everything i say, I want you to confirm that you received it</td>
+                            <td>Web, Email file transfer</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">UDP
+                            </th>
+
+                            <td>Connectionless, stateless, simple, no retransmission delays</td>
+                            <td>i'm going to start talking and its ok if you miss some words</td>
+                            <td>Streaming media, DNS</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">ICMP</th>
+
+                            <td>Used by network devices to exchnage info</td>
+                            <td>We router can keep in touch about the health of the network using our own language</td>
+                            <td>traceroute, ping</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+            </div>
+            <!-- end -->
+            <!-- start-->
+            <div>
+                <h3>Ephemeral Ports</h3>
+                <ul>
+                    <li>Short-lived transport protocol used for IP communication</li>
+                    <li>Above the "Well-know" IP ports (above 1024)</li>
+                    <li>Sysnamic Ports</li>
+                    <li>
+                        Suggested range is 49152 to 65535 but...
+                        <ul>
+                            <li>Linux kernals generally use 32568 to 61000</li>
+                            <li>window platform default from 1025</li>
+                        </ul>
+                    </li>
+                    <li>NACL and Security Group implication.</li>
+                </ul>
+
+            </div>
+            <!-- end-->
 
         </div>
     </div>
