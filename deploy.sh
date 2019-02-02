@@ -9,5 +9,7 @@ aws s3api put-bucket-policy --bucket "$1" \
 
 aws s3api put-bucket-versioning --bucket "$1"  --versioning-configuration Status=Enabled
 
-aws s3 cp --recursive ./dist/ "s3://${1}/"
+# aws s3 cp --recursive ./dist/ "s3://${1}/"
+
+aws s3 sync ./dist/ "s3://${1}/"
 # aws s3 sync  --exclude=node_modules/* --include=dist/* . s3://${1}/
