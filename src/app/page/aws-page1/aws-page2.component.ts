@@ -7,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AwsPage2Component implements OnInit {
 
+  AWS_pro_emphimal_portImage:any = "assets/img/aws/achitect_pro/2019_00001_AWS_pro_emphimal_port.png";
   constructor() { }
 
   ngOnInit() {
