@@ -12,6 +12,8 @@ import { AWSPage1StarterComponent } from '../page/aws-page1/aws-page1.starter.co
 import { AwsPage1Component } from '../page/aws-page1/aws-page1.component';
 import { AwsPage2Component } from '../page/aws-page1/aws-page2.component';
 import { AWSPage2StarterComponent } from '../page/aws-page1/aws-page2.starter.component';
+import { AwsPage3Component } from '../page/aws-page1/aws-page3.component';
+import { AWSPage3StarterComponent } from '../page/aws-page1/aws-page3.starter.component';
 
 
 @NgModule({
@@ -23,12 +25,14 @@ import { AWSPage2StarterComponent } from '../page/aws-page1/aws-page2.starter.co
     StarterComponent,
     AWSPage1StarterComponent,
     AWSPage2StarterComponent,
+    AWSPage3StarterComponent,
 
     StarterNavbarComponent,
     StarterMainSidebarComponent,
     StarterContentComponent,
     AwsPage1Component,
     AwsPage2Component,
+    AwsPage3Component,
 
     StarterControlSidebarComponent,
     StarterFooterComponent
