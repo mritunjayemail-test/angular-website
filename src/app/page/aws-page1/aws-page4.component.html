@@ -19,6 +19,21 @@
     <div class="content">
         <div class="container-fluid">
             <!-- start -->
+
+<p>Deploy nginx container</p>
+<p>kubectl run my-web --image=nginx --port=80</p>
+<p>#Expose nginx container</p>
+<p>kubectl expose deployment my-web --target-port=80 --type=NodePort</p>
+<p>Get the node IP of conatiner</p>
+<p>minikube ip</p>
+<p>#Check the nodePort</p>
+<p>kubectl describe svc my-web</p>
+<p># Access nginx from curl</p>
+<p>PORT=$(kubectl get svc my-web -o go-template='{{(index .spec.ports 0).nodePort}}')</p>
+<p>IP=$(minikube ip)</p>
+<p>curl $IP:$PORT</p>
+
+
             <div>
                     <p>
                       <img src="assets/img/kubernetes/2019_0001_k8_infra.png" class="mx-auto rounded img-fluid"
